@@ -1,0 +1,86 @@
+[
+  {
+    "id": 1,
+    "title":"Know--ur--Disease-AI",
+    "description": "Full-stack e-commerce application with payment integration, inventory management, and real-time order tracking.",
+    "longDescription": "A comprehensive e-commerce solution featuring user authentication, product catalog, shopping cart, and integrated payment processing. Includes admin dashboard for inventory management and order tracking.",
+    "technologies": [
+      "Phyton",
+      "Machine Learning",
+      "NLP"
+    ],
+    "github": "https://github.com/Dhanush-ux177/Know--ur--Disease-AI.git",
+    "image": "🩺",
+    "featured": true,
+    "startDate": "2025-06",
+    "endDate": "2025-11"
+  },
+  {
+    "id": 2,
+    "title": "Image to Sketch-AI",
+    "description": "AI-Powered Pencil Sketch Converter with Artistic Enhancement",
+    "technologies": [
+      "Phyton",
+      "Image Processing",
+      "Machine Learning"
+
+
+    ],
+    "github": "https://github.com/Dhanush-ux177/image-to-sketch.git",
+    "image": "🎨",
+    "featured": true,
+    "startDate": "2026-02",
+    "endDate": "2026-03"
+  },
+  {
+    "id": 3,
+      "title": "Online Quiz System",
+    "description": "An interactive online quiz platform that allows users to take quizzes on various topics, track their scores, and view detailed analytics.",
+    "technologies": [
+      "HTML",
+      "CSS",
+      "JavaScript",
+      "Phyton",
+      "Sqlite"
+    ],
+    "github": "https://github.com/Dhanush-ux177/Online-Quiz-System.git",
+    "image": "📝",
+    "featured": true,
+    "startDate": "2026-03",
+    "endDate": "2026-04"
+  },
+  {
+    "id": 4,
+    "title": "Yolvo RealWebcam Detection",
+    "description": "Interactive dashboard for visualizing complex datasets with real-time updates and custom reports.",
+    "technologies": [
+      "Phyton",
+      "OpenCV",
+      "YOLOv5",
+      "Flask"
+    ],
+    "github": "https://github.com/Dhanush-ux177/yolo-webcam-Detection.git",
+    "image": "🖥️",
+    "featured": true,
+    "startDate": "2026-03",
+    "endDate": "2026-03"
+  },
+  {
+    "id": 5,
+    "title": "InternShield",
+    "description": "InternShield – AI‑powered scam detector for students. Paste a job description or internship offer to instantly check for red flags like upfront fees, vague requirements, and phishing signs. Built with React + Vite.",
+    "technologies": [
+      "HTML",
+      "CSS",
+      "JavaScript",
+      "React",
+      "Vite",
+      "Node.js"
+    ],
+    "github": "https://github.com/Dhanush-ux177/InternShield.git",
+    "image": "🛡️",
+    "featured": false,
+    "startDate": "2026-04",
+    "endDate": "2026-05"
+  }
+]

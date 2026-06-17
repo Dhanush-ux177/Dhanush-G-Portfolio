@@ -1,0 +1,46 @@
+[
+  {
+    "category": "Frontend",
+    "items": [
+      "HTML",
+      "CSS",
+      "JavaScript",
+      "React"
+
+    ]
+  },
+  {
+    "category": "Backend",
+    "items": [
+      "Python",
+      "FastAPI",
+      "Django"
+    ]
+  },
+  {
+    "category": "Database",
+    "items": [
+      "MySQL",  
+      "SQLite",
+      "MongoDB"
+    ]
+  },
+  {
+    "category": "AI & Machine Learning",
+    "items": [
+      "TensorFlow",
+      "PyTorch",
+      "Scikit-learn",
+      "OpenCV"
+    ]
+  },
+  {
+    "category": "Tools",
+    "items": [
+      "Git",
+      "GitHub",
+      "Google Colaboratory",
+      "VS Code" 
+    ]
+  }
+]
