@@ -226,7 +226,7 @@ const Portfolio = () => {
             </div>
             <div className="mt-4 text-center">
               <a 
-                href="/Dhanush_G_Resume1.pdf" 
+                href="/Dhanush_G_Resume.pdf" 
                 download
                 className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-lg font-semibold hover:shadow-lg hover:shadow-blue-500/50 transition-all text-sm"
               >
