@@ -16,17 +16,16 @@ const PORT = process.env.PORT || 5000;
 // Middleware
 app.use(cors());
 app.use(express.json());
-app.use(express.static(path.join(__dirname, '../frontend/dist')));
 
-// Database file paths
-const PROJECTS_FILE = path.join(__dirname, '../data/projects.json');
-const SKILLS_FILE = path.join(__dirname, '../data/skills.json');
-const CONTACT_FILE = path.join(__dirname, '../data/contact.json');
+// Database file paths (changed from ../data to ./data since we're in backend folder)
+const PROJECTS_FILE = path.join(__dirname, './data/projects.json');
+const SKILLS_FILE = path.join(__dirname, './data/skills.json');
+const CONTACT_FILE = path.join(__dirname, './data/contact.json');
 
 // Ensure data directory exists
 const ensureDataDir = async () => {
   try {
-    await fs.mkdir(path.join(__dirname, '../data'), { recursive: true });
+    await fs.mkdir(path.join(__dirname, './data'), { recursive: true });
   } catch (error) {
     console.error('Error creating data directory:', error);
   }
@@ -39,7 +38,7 @@ const initializeDataFiles = async () => {
       id: 1,
       title: 'Know--ur--Disease-AI',
       description: 'An end to end, teaching oriented project that turns unstructured clinical notes into disease predictions and integrated payment processing. Includes admin dashboard for inventory management and order tracking.',
-      technologies: ['Phyton','Machine Learning','NLP'],
+      technologies: ['Python', 'Machine Learning', 'NLP'],
       github: 'https://github.com/Dhanush-ux177/Know--ur--Disease-AI.git',
       image: '🩺',
       featured: true,
@@ -50,10 +49,10 @@ const initializeDataFiles = async () => {
       id: 2,
       title: 'Image to Sketch-AI',
       description: 'AI-Powered Pencil Sketch Converter with Artistic Enhancement',
-      technologies: ['Phyton','Image Processing','Machine Learning'],
+      technologies: ['Python', 'Image Processing', 'Machine Learning'],
       github: 'https://github.com/Dhanush-ux177/image-to-sketch.git',
       image: '🎨',
-      featured:true,
+      featured: true,
       startDate: '2026-02',
       endDate: '2026-03'
     },
@@ -61,7 +60,7 @@ const initializeDataFiles = async () => {
       id: 3,
       title: 'Online Quiz System',
       description: 'Designed and developed a Online Quiz website with interactive features and user-friendly interface.',
-      technologies: ['HTML','CSS', 'JavaScript','Phyton','SQLite'],
+      technologies: ['HTML', 'CSS', 'JavaScript', 'Python', 'SQLite'],
       github: 'https://github.com/Dhanush-ux177/Online-Quiz-System.git',
       image: '📝',
       featured: true,
@@ -96,25 +95,22 @@ const initializeDataFiles = async () => {
     {
       category: 'Frontend',
       items: ['HTML', 'CSS', 'JavaScript']
-
     },
     {
       category: 'Backend',
       items: ['Python', 'FastAPI', 'Django']
-
     },
     {
       category: 'Database',
-      items: ['MySQL','SQLite']
+      items: ['MySQL', 'SQLite']
     },
     {
       category: 'AI & Machine Learning',
       items: ['TensorFlow', 'PyTorch', 'Scikit-learn', 'OpenCV']
     },
-      
     {
       category: 'Tools & DevOps',
-      items: ['Git','Github','Google Colaboratory', 'VS Code'] 
+      items: ['Git', 'Github', 'Google Colaboratory', 'VS Code']
     }
   ];
 
@@ -247,7 +243,6 @@ app.post('/api/contact', async (req, res) => {
     submissions.push(newSubmission);
     await fs.writeFile(CONTACT_FILE, JSON.stringify(submissions, null, 2));
     
-    // Here you would typically send an email notification
     console.log('New contact submission:', newSubmission);
     
     res.status(201).json({ 
@@ -263,11 +258,6 @@ app.post('/api/contact', async (req, res) => {
 // Health check
 app.get('/api/health', (req, res) => {
   res.json({ status: 'OK', timestamp: new Date().toISOString() });
-});
-
-// Serve React app for unmatched routes
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, '../frontend/dist/index.html'));
 });
 
 // Error handling middleware
