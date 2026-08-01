@@ -303,9 +303,193 @@ const Portfolio = () => {
         </div>
       </section>
 
-      {/* Projects, Skills, About, Contact unchanged – keep your existing code */}
-      {/* ... (copy your existing sections for Projects, Skills, About, Contact, Footer) ... */}
+      {/* Projects */}
+      <section id="projects" className="pt-20 pb-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+        <h2 className={`text-4xl font-bold mb-4 flex items-center gap-3 ${theme === 'dark' ? 'text-white' : 'text-gray-800'}`}>
+          <Briefcase className="text-blue-400" /> Featured Projects
+        </h2>
+        <p className={theme === 'dark' ? 'text-slate-400' : 'text-gray-500'}>A selection of recent work demonstrating full-stack capabilities</p>
+        {loading ? (
+          <div className="text-center py-12"><p className={theme === 'dark' ? 'text-slate-400' : 'text-gray-500'}>Loading projects...</p></div>
+        ) : (
+          <div className="grid md:grid-cols-3 gap-6">
+            {(projects.length > 0 ? projects : defaultProjects).map((project) => (
+              <div key={project.id} className={`group rounded-xl p-6 border transition-all duration-300 hover:shadow-xl hover:shadow-blue-500/10 ${theme === 'dark' ? 'bg-gradient-to-br from-slate-800 to-slate-900 border-slate-700 hover:border-blue-500/50' : 'bg-white border-gray-200 hover:border-blue-500/50'}`}>
+                <div className="text-5xl mb-4">{project.image}</div>
+                <h3 className={`text-xl font-bold mb-3 group-hover:text-blue-400 transition-colors ${theme === 'dark' ? 'text-white' : 'text-gray-800'}`}>{project.title}</h3>
+                <p className={theme === 'dark' ? 'text-slate-400 mb-4 text-sm leading-relaxed' : 'text-gray-500 mb-4 text-sm leading-relaxed'}>{project.description}</p>
+                <div className="flex flex-wrap gap-2 mb-6">
+                  {project.technologies.map((tech) => (
+                    <span key={tech} className="px-3 py-1 bg-blue-500/20 text-blue-300 rounded-full text-xs font-medium">{tech}</span>
+                  ))}
+                </div>
+                <div className="flex gap-2">
+                  <a href={project.github} className={`flex-1 flex items-center justify-center gap-2 px-4 py-2 rounded-lg transition-colors text-sm font-medium ${theme === 'dark' ? 'bg-slate-700/50 text-slate-300 hover:bg-slate-700' : 'bg-gray-200 text-gray-700 hover:bg-gray-300'}`}>
+                    Code <Github size={16} />
+                  </a>
+                </div>
+              </div>
+            ))}
+          </div>
+        )}
+      </section>
 
+      {/* Skills */}
+      <section id="skills" className="pt-20 pb-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+        <h2 className={`text-4xl font-bold mb-4 flex items-center gap-3 ${theme === 'dark' ? 'text-white' : 'text-gray-800'}`}>
+          <Code2 className="text-blue-400" /> Technical Skills
+        </h2>
+        <p className={theme === 'dark' ? 'text-slate-400' : 'text-gray-500'}>Technologies and tools I work with</p>
+        {loading ? (
+          <div className="text-center py-12"><p className={theme === 'dark' ? 'text-slate-400' : 'text-gray-500'}>Loading skills...</p></div>
+        ) : (
+          <div className="grid md:grid-cols-2 gap-8">
+            {(skills.length > 0 ? skills : defaultSkills).map((skillGroup) => (
+              <div key={skillGroup.category} className={`rounded-xl p-8 border transition-all ${theme === 'dark' ? 'bg-gradient-to-br from-slate-800 to-slate-900 border-slate-700 hover:border-blue-500/50' : 'bg-white border-gray-200 hover:border-blue-500/50'}`}>
+                <h3 className="text-xl font-bold text-blue-400 mb-6">{skillGroup.category}</h3>
+                <div className="flex flex-wrap gap-3">
+                  {skillGroup.items.map((skill) => (
+                    <span key={skill} className={`px-4 py-2 rounded-lg font-medium transition-all cursor-pointer ${theme === 'dark' ? 'bg-slate-700/50 text-slate-200 hover:bg-blue-500/20 hover:text-blue-300' : 'bg-gray-200 text-gray-700 hover:bg-blue-500/20 hover:text-blue-600'}`}>{skill}</span>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        )}
+      </section>
+
+      {/* About */}
+      <section id="about" className="pt-20 pb-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+        <h2 className={`text-4xl font-bold mb-4 flex items-center gap-3 ${theme === 'dark' ? 'text-white' : 'text-gray-800'}`}>
+          <User className="text-blue-400" /> About Me
+        </h2>
+        <div className="grid md:grid-cols-2 gap-12 items-center">
+          <div>
+            <p className={`text-lg mb-6 leading-relaxed ${theme === 'dark' ? 'text-slate-300' : 'text-gray-600'}`}>
+              I'm a passionate full-stack developer and proficient in building end-to-end ML pipelines, web interfaces, and computer vision solutions. Adapt at collaborating in team environments and delivering projects under tight deadlines.
+            </p>
+            <p className={`text-lg mb-6 leading-relaxed ${theme === 'dark' ? 'text-slate-300' : 'text-gray-600'}`}>
+              I specialize in creating seamless user experiences paired with robust backend systems and hands-on experience in Python, Machine Learning, and AI-powered application development.
+            </p>
+            <div className="space-y-4">
+              <div className="flex items-center gap-3"><div className="w-3 h-3 bg-blue-400 rounded-full"></div><span className={theme === 'dark' ? 'text-white' : 'text-gray-800'}>Master's in Computer Application</span></div>
+              <div className="flex items-center gap-3"><div className="w-3 h-3 bg-blue-400 rounded-full"></div><span className={theme === 'dark' ? 'text-white' : 'text-gray-800'}>Fresher</span></div>
+              <div className="flex items-center gap-3"><div className="w-3 h-3 bg-blue-400 rounded-full"></div><span className={theme === 'dark' ? 'text-white' : 'text-gray-800'}>Open Source Contributor</span></div>
+            </div>
+          </div>
+          <div className={`rounded-xl p-8 border ${theme === 'dark' ? 'bg-gradient-to-br from-slate-800 to-slate-900 border-slate-700' : 'bg-white border-gray-200'}`}>
+            <h3 className="text-2xl font-bold mb-6 text-blue-400">My Journey</h3>
+            <div className="space-y-6">
+              {[
+                { year: '2024', title: 'Started Learning Web Dev', desc: 'Began with HTML, CSS, and JavaScript' },
+                { year: '2025', title: 'First Professional Role', desc: 'Frontend developer at a startup' },
+                { year: '2025', title: 'Advanced to Full-Stack', desc: 'Expanded expertise to backend systems' },
+                { year: '2026', title: 'AI&ML Technologies', desc: 'Deeper knowledge in AI&ML Libraries' }
+              ].map((milestone, idx) => (
+                <div key={idx} className="flex gap-4">
+                  <div className="min-w-fit"><span className="text-blue-400 font-bold">{milestone.year}</span></div>
+                  <div><p className={`font-semibold ${theme === 'dark' ? 'text-white' : 'text-gray-800'}`}>{milestone.title}</p><p className={theme === 'dark' ? 'text-slate-400 text-sm' : 'text-gray-500 text-sm'}>{milestone.desc}</p></div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Contact */}
+      <section id="contact" className="pt-20 pb-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+        <h2 className={`text-4xl font-bold mb-4 flex items-center gap-3 ${theme === 'dark' ? 'text-white' : 'text-gray-800'}`}>
+          <Mail className="text-blue-400" /> Get In Touch
+        </h2>
+        <p className={theme === 'dark' ? 'text-slate-400' : 'text-gray-500'}>
+          Have a question or want to work together? Send me a message!
+        </p>
+
+        <div className="grid md:grid-cols-2 gap-12 items-start mt-12">
+          <div>
+            <form onSubmit={handleSubmit} className="space-y-6">
+              <div>
+                <label htmlFor="name" className={`block text-sm font-medium mb-2 ${theme === 'dark' ? 'text-slate-300' : 'text-gray-700'}`}>Your Name *</label>
+                <input type="text" id="name" name="name" value={formData.name} onChange={handleInputChange} required className={`w-full px-4 py-3 border rounded-lg focus:outline-none focus:border-blue-500 ${theme === 'dark' ? 'bg-slate-800 border-slate-700 text-white' : 'bg-white border-gray-300 text-gray-800'}`} placeholder="John Doe" />
+              </div>
+              <div>
+                <label htmlFor="email" className={`block text-sm font-medium mb-2 ${theme === 'dark' ? 'text-slate-300' : 'text-gray-700'}`}>Email Address *</label>
+                <input type="email" id="email" name="email" value={formData.email} onChange={handleInputChange} required className={`w-full px-4 py-3 border rounded-lg focus:outline-none focus:border-blue-500 ${theme === 'dark' ? 'bg-slate-800 border-slate-700 text-white' : 'bg-white border-gray-300 text-gray-800'}`} placeholder="john@example.com" />
+              </div>
+              <div>
+                <label htmlFor="message" className={`block text-sm font-medium mb-2 ${theme === 'dark' ? 'text-slate-300' : 'text-gray-700'}`}>Message *</label>
+                <textarea id="message" name="message" value={formData.message} onChange={handleInputChange} required rows="5" className={`w-full px-4 py-3 border rounded-lg focus:outline-none focus:border-blue-500 resize-none ${theme === 'dark' ? 'bg-slate-800 border-slate-700 text-white' : 'bg-white border-gray-300 text-gray-800'}`} placeholder="Tell me about your project or inquiry..."></textarea>
+              </div>
+              {formStatus.message && (
+                <div className={`p-4 rounded-lg ${formStatus.type === 'success' ? 'bg-green-500/20 text-green-300 border border-green-500/50' : 'bg-red-500/20 text-red-300 border border-red-500/50'}`}>
+                  {formStatus.message}
+                </div>
+              )}
+              <button type="submit" disabled={isSubmitting} className="w-full flex items-center justify-center gap-2 px-6 py-3 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-lg font-semibold hover:shadow-lg hover:shadow-blue-500/50 transition-all disabled:opacity-50 text-white">
+                {isSubmitting ? 'Sending...' : <>Send Message <Send size={18} /></>}
+              </button>
+            </form>
+          </div>
+
+          <div className={`rounded-xl p-8 border ${theme === 'dark' ? 'bg-gradient-to-br from-slate-800 to-slate-900 border-slate-700' : 'bg-white border-gray-200'}`}>
+            <h3 className="text-2xl font-bold mb-6 text-blue-400">Contact Information</h3>
+            <div className="space-y-6">
+              <a
+                href="https://www.google.com/maps/search/?api=1&query=Byatarayanapura+Mysore+Road+Bangalore"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`flex items-start gap-4 transition-colors group ${theme === 'dark' ? 'hover:text-blue-400' : 'hover:text-blue-600'}`}
+              >
+                <MapPin className="text-blue-400 mt-1 group-hover:text-blue-300" size={22} />
+                <div>
+                  <p className={`font-semibold ${theme === 'dark' ? 'text-white' : 'text-gray-800'}`}>Location</p>
+                  <p className={`transition-colors ${theme === 'dark' ? 'text-slate-400 group-hover:text-blue-300' : 'text-gray-500 group-hover:text-blue-600'}`}>
+                    Byatarayanapura, Mysore Road, Bangalore-26
+                  </p>
+                </div>
+              </a>
+
+              <a
+                href="tel:+917676210494"
+                className={`flex items-start gap-4 transition-colors group ${theme === 'dark' ? 'hover:text-blue-400' : 'hover:text-blue-600'}`}
+              >
+                <Phone className="text-blue-400 mt-1 group-hover:text-blue-300" size={22} />
+                <div>
+                  <p className={`font-semibold ${theme === 'dark' ? 'text-white' : 'text-gray-800'}`}>Phone</p>
+                  <p className={`transition-colors ${theme === 'dark' ? 'text-slate-400 group-hover:text-blue-300' : 'text-gray-500 group-hover:text-blue-600'}`}>
+                    +91 7676210494
+                  </p>
+                </div>
+              </a>
+
+              <div className={`flex items-start gap-4 transition-colors group ${theme === 'dark' ? 'hover:text-blue-400' : 'hover:text-blue-600'}`}>
+                <Mail className="text-blue-400 mt-1 group-hover:text-blue-300" size={22} />
+                <div>
+                  <p className={`font-semibold ${theme === 'dark' ? 'text-white' : 'text-gray-800'}`}>Email</p>
+                  <a
+                    href="mailto:dhanushdhanud54@gmail.com"
+                    className={`transition-colors ${theme === 'dark' ? 'text-slate-400 hover:text-blue-300' : 'text-gray-500 hover:text-blue-600'}`}
+                  >
+                    dhanushdhanud54@gmail.com
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className={`border-t py-8 px-4 ${theme === 'dark' ? 'border-slate-700 bg-slate-900/50' : 'border-gray-200 bg-gray-100/50'}`}>
+        <div className="max-w-7xl mx-auto text-center">
+          <p className={theme === 'dark' ? 'text-slate-400' : 'text-gray-600'}>
+            Designed & Built by <span className="bg-gradient-to-r from-blue-400 to-cyan-500 bg-clip-text text-transparent font-semibold">Dhanush G</span>
+          </p>
+          <p className={`text-sm mt-1 ${theme === 'dark' ? 'text-slate-500' : 'text-gray-400'}`}>
+            &copy; 2025 All rights reserved
+          </p>
+        </div>
+      </footer>
     </div>
   );
 };
