@@ -458,14 +458,14 @@ const Portfolio = () => {
               </a>
 
               <a
-                href="tel:+91 7676210494"
+                href="tel:+917676210494"
                 className={`flex items-start gap-4 transition-colors group ${theme === 'dark' ? 'hover:text-blue-400' : 'hover:text-blue-600'}`}
               >
                 <Phone className="text-blue-400 mt-1 group-hover:text-blue-300" size={22} />
                 <div>
                   <p className={`font-semibold ${theme === 'dark' ? 'text-white' : 'text-gray-800'}`}>Phone</p>
                   <p className={`transition-colors ${theme === 'dark' ? 'text-slate-400 group-hover:text-blue-300' : 'text-gray-500 group-hover:text-blue-600'}`}>
-                    +91 1234567891
+                    +91 7676210494
                   </p>
                 </div>
               </a>
